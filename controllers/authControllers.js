@@ -55,8 +55,7 @@ module.exports.login = async (req, res) => {
             return res.status(400).json({ message: "Invalid password!" })
         }
 
-
-        const token = jwt.sign({ email: isExist.email, username: isExist.username, role: isExist.role }, process.env.secret_key, { expiresIn: "1hr" });
+        const token = jwt.sign({ email: isExist.email, id:isExist._id, username: isExist.username, role: isExist.role }, process.env.secret_key, { expiresIn: "1hr" });
 
         res.cookie("authToken", token, { maxAge: 60 * 60 * 1000 })
 

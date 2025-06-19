@@ -5,7 +5,7 @@ const userController = require("../controllers/userControllers");
 const { verifyToken, verifyRole } = require("../middlewares/authMiddleware");
 
 
-router.get('/profile', verifyToken, verifyRole(["user","admin"]), userController.profile);
+router.get('/profile', verifyToken, verifyRole(["user"]), userController.profile);
 
 
 
